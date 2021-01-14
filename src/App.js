@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Navbar from "./components/navbar";
+import {BrowserRouter,Route  } from "react-router-dom";
+import  Home  from "./components/Home";
+import  Product  from "./components/Product";
+import  UseCases  from "./components/UseCases";
+import  WhyVyorius  from "./components/WhyVyorius";
+import  Team  from "./components/Team";
+import  Solution  from "./components/Solution";
+import  Contact  from "./components/Contact";
+import  Partners  from "./components/Partners";
 
-function App() {
+class App extends React.Component {
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Navbar/>
+        <Route exact path="/" component={Home}/>
+        <Route path="/Product" component={Product}/>
+        <Route path="/UseCases" component={UseCases}/>
+        <Route path="/WhyVyorius" component={WhyVyorius}/>
+        <Route path="/Team" component={Team}/>
+        <Route path="/Solution" component={Solution}/>
+        <Route path="/Contact" component={Contact}/>
+        <Route path="/Partners" component={Partners}/>
+      </div>
+    </BrowserRouter>
   );
+  }
 }
 
 export default App;
